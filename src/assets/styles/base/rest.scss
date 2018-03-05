@@ -1,0 +1,46 @@
+@import "fn";
+
+%size {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+}
+html {
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    @extend %size;
+}
+
+body {
+    /* line-height: 1.6; */
+    font-family: $cpFontDefault;
+    font-size: px2Rem(24px);
+    color: $body_color;
+    @extend %size;
+}
+
+ul, li {
+    list-style: none;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+::before,
+::after {
+    box-sizing: border-box;
+}
+:focus, a {
+    outline: none;
+}
+
+a img {
+    border: 0;
+}
+
+a {
+    text-decoration: none;
+    @include setTapColor();
+    font-size: px2Rem(28px);
+}

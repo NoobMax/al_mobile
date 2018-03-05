@@ -1,0 +1,51 @@
+// widget
+@import './widget/cp-input';
+@import './widget/cp-loading';
+@import './widget/swiper';
+@import './widget/cell';
+@import './widget/tabbar';
+@import './widget/navbar';
+@import './widget/betslip-checker';
+@import './widget/button';
+@import './widget/bank';
+
+.banks-wrapper {
+  height: 100%;
+  background-color: $body_bg_color;
+  overflow-y:auto;
+  -webkit-overflow-scrolling: touch;
+}
+.banks-wrapper__table {
+  margin-top: px2Rem(110px);
+  background-color: #fff;
+  @at-root {
+    .banks-table__delete {
+      display: flex;
+      justify-content: flex-end;
+      padding: 10px;
+      .banks-table__delete-btn {
+        flex: 0 1 px2Rem(180px);
+        button {
+          height: px2Rem(61px);
+          font-size: px2Rem(28px);
+        }
+      }
+    }
+  }
+}
+.banks-add__heading {
+  margin-top: px2Rem(90px);
+  padding: px2Rem(20px);
+  p {
+    color: $primary_font_color;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+  }
+}
+.banks-wrapper__form {
+  .weui-cells,
+  .vux-no-group-title {
+    margin-top: 0;
+  }
+}

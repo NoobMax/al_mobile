@@ -1,0 +1,140 @@
+// widget
+@import './widget/cp-input';
+@import './widget/cp-loading';
+@import './widget/swiper';
+@import './widget/cell';
+@import './widget/tabbar';
+@import './widget/navbar';
+@import './widget/betslip-checker';
+@import './widget/button';
+
+.cp-mobile__wrapper {
+  &.is-blur {
+    filter: blur(5px);
+  }
+  .mobile-find__content {
+    padding-bottom: px2Rem(205px*2);
+    height: 100%;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+.find-discount {
+  margin-top: px2Rem(20px);
+  @at-root {
+    .find-discount__item {
+      padding: px2Rem(20px);
+      background-color: #fff;
+      @at-root {
+        .discount-item__body {
+          height: px2Rem(290px);
+          max-height: px2Rem(290px);
+          border-radius: 5px;
+          background-color: #ccc; 
+        }
+        .discount-item__footer {
+          display: flex;
+          padding: px2Rem(20px);
+          justify-content: space-between;
+          .discount-item__footer-title {
+            font-size: px2Rem(28px);
+            color: $dis_title_color;
+          }
+          .discount-item__footer-date {
+            font-size: px2Rem(28px);
+            color: $dis_date_color;
+          }
+        }
+      }
+    }
+  }
+}
+.find-notify {
+  margin-top: px2Rem(20px);
+}
+.find-notify__item {
+  display: flex;
+  padding: px2Rem(20px);
+  background-color: #fff;
+  align-items: center;
+  .notify-item__left {
+    flex: 1 0 px2Rem(180px);
+    height: px2Rem(180px);
+    background-color: #ccc;
+    border-radius: 5px;
+  }
+  .notify-item__right{
+    display: flex;
+    flex-direction: column;
+    padding: 0 px2Rem(20px);
+    overflow: hidden;
+    @at-root {
+      .notify-item__right-title p {
+        font-size: px2Rem(32px);
+        color: $dis_title_color;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      .notify-item__right-date {
+        color: $dis_date_color;
+        margin: px2Rem(5px) 0;
+      }
+      .notify-item__right-caption {
+        position:relative;
+        line-height:1.4em;
+        /* 3 times the line-height to show 3 lines */
+        height:4.2em;
+        overflow:hidden;
+        color: $dis_caption_color;
+        &::after {
+          content:"...";
+          font-weight:bold;
+          position:absolute;
+          bottom:0;
+          right:0;
+          padding:0 20px 1px 45px;
+      }
+      }
+    }
+  }
+}
+.find-level {
+  margin-top: px2Rem(20px);
+}
+.find-level__item  {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  padding: px2Rem(20px);
+  @at-root {
+    .level-item__number {
+      margin: 0 px2Rem(20px);
+      p {
+        font-size: px2Rem(36px);
+      }
+    }
+    .level-item__body {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      img {
+        height: px2Rem(90px);
+      }
+      .level-item__body-user {
+        flex: 1;
+        p {
+          font-size: px2Rem(32px);
+          color: $dis_caption_color;
+        }
+        span {
+          color: $dis_date_color;
+        }
+      }
+    }
+    .level-item__body-money {
+      font-size: px2Rem(36px);
+      color: $level_money_color;
+    }
+  }
+}

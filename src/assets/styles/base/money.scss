@@ -1,0 +1,327 @@
+// widget
+@import './widget/cp-input';
+@import './widget/cp-loading';
+@import './widget/swiper';
+@import './widget/cell';
+@import './widget/tabbar';
+@import './widget/navbar';
+@import './widget/betslip-checker';
+@import './widget/button';
+
+%header-item{
+  flex: 1;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  p {
+    font-size: px2Rem(28px);
+    color: $notify_font_color;
+    margin-right: px2Rem(10px);
+  }
+  span {
+    font-size: px2Rem(28px);
+  }
+}
+.money-wrapper {
+  height: 100%;
+  background-color: $body_bg_color;
+  overflow: hidden;
+  .money-wrapper__offline {
+    overflow: hidden; 
+    height: 100%; 
+    margin-top: px2Rem(90px);
+  }
+}
+.money-root__header {
+  display: flex;
+  align-items: center;
+  padding: px2Rem(20px) 0;
+  margin-top: px2Rem(90px);
+  .money-root__header-left {
+    @extend %header-item;
+    span {
+      color: $money_font_color;
+    }
+  }
+  .money-root__header-right {
+    @extend %header-item;
+    span {
+      color: $primary_font_color;
+    }
+  }
+}
+.money-online__wrapper {
+  @at-root {
+    .money-online__header {
+      
+    }
+  }
+}
+
+.withdraw-money {
+  padding: px2Rem(20px) 0;
+  .weui-cell {
+    &::before {
+      border: none;
+    }
+  }
+  .withdraw-money__label {
+    padding-left: 15px;
+    span {
+      font-size: px2Rem(28px);
+      color: $primary_font_color;
+    }
+  }
+}
+.withdraw-btnGroup {
+  padding: 0 px2Rem(40px);
+  margin-top: px2Rem(80px);
+  button {
+    margin: px2Rem(20px) 0;
+    height: px2Rem(80px);
+    line-height: px2Rem(80px);
+    font-size: px2Rem(32px);
+  }
+}
+
+.withdraw-banks {
+  display: flex;
+  padding: px2Rem(40px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .withdraw-banks__add-icon {
+    display: flex;
+    // border: 1px solid $body_color;
+    // width: 18px;
+    // height: 18px;
+    width: px2Rem(48px);
+    height: px2Rem(48px);
+    align-items: center;
+    justify-content: center;
+    margin-right: px2Rem(10px);
+    img {
+      max-width: 100%;
+    }
+  }
+  .winthdraw-banks__add-text {
+    color: $active_font_color;
+    font-size: px2Rem(32px);
+  }
+  &.is-add {
+    &::after {
+      right: 20px;
+    }
+    justify-content: flex-start;
+    .withdraw-banks__bankInfo {
+      display: flex;
+      flex-direction: column;
+      margin-left: px2Rem(30px);
+      p,
+      span {
+        color: $active_font_color;
+      }
+      p {
+        font-size: px2Rem(32px);
+      }
+      span {
+        font-size: px2Rem(28px);
+      }
+    }
+  }
+}
+.money-history__wrapper {
+  padding-top: px2Rem(20px);
+  overflow-x: auto;
+  height: 100%;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: px2Rem(254px);
+}
+.money-history__item {
+  &.mobile-ft {
+    &::after {
+      right: 10px;
+    }
+  }
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  padding: px2Rem(20px);
+  padding-right: px2Rem(40px);
+  @at-root {
+    .money-history__right {
+      font-size: px2Rem(28px);
+    }
+    .money-history__left {
+      flex: 1;
+      .money-history__left-date {
+        color: $dis_date_color;
+      }
+      .money-history__left-money {
+        display: flex;
+        margin-top: px2Rem(10px);
+        p {
+          font-size: px2Rem(30px);
+          color: $dis_caption_color;
+        }
+        span {
+          font-size: px2Rem(30px);
+          color: $active_font_color;
+        }
+      }
+    }
+  }
+}
+
+/*在线支付*/
+.money-online__heading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .money-onlie__heading-body {
+    p {
+      font-size: px2Rem(48px);
+      // font-style: italic;
+      color: $active_font_color;
+      margin-bottom: px2Rem(10px);
+    }
+    span {
+      font-size: px2Rem(32px);
+      color: $active_font_color;
+    }
+  }
+}
+.money-online__banks {
+  span {
+    font-size: px2Rem(32px);
+    color: $banks_ft_color;
+  }
+}
+
+.money-onlie__input {
+  .weui-label {
+    color: $primary_font_color;
+  }
+  .weui-input {
+    color: $primary_font_color;
+  }
+}
+
+.money-online__content {
+  margin-top: px2Rem(90px);
+  .money-onlie__list {
+    display: flex;
+    flex-wrap: wrap;
+    padding: px2Rem(20px);
+  }
+  .money-input__item {
+    flex: 0 1 22%;
+    margin: px2Rem(10px);
+    text-align: center;
+    background-color: #fff;
+    border-radius: 5px;
+    height: px2Rem(80px);
+    line-height: px2Rem(80px);
+    border: 1px solid transparent;
+    span {
+      color: $banks_ft_color;
+      font-size: px2Rem(28px);
+    }
+    &.is-active {
+      border: 1px solid $success_btn_bg_color;
+      span {
+        color: $success_btn_bg_color;
+      }
+    }
+  }
+}
+
+/*支付完成**/
+.money-finish__success {
+  text-align: center;
+  padding: px2Rem(60px) px2Rem(40px);
+  h4 {
+    color: $primary_font_color;
+    font-size: px2Rem(32px);
+  }
+  h5 {
+    margin: px2Rem(20px) 0;
+    color: $dis_date_color;
+    font-size: px2Rem(28px);
+  }
+  span {
+    color: $dis_date_color;
+    font-size: px2Rem(32px);
+  }
+  .money-success__money {
+    color: $level_money_color;
+  }
+  .money-success__qrcode {
+    margin: px2Rem(60px) 0;
+  }
+  .finish-btn-group {
+    margin: 0 px2Rem(40px);
+    button {
+      font-size: px2Rem(32px);
+    }
+  }
+}
+
+.money-finish__footer {
+  position: absolute;
+  bottom: px2Rem(60px);
+  left: 0;
+  right: 0;
+  text-align: center;
+  color: $dis_date_color;
+}
+.money-offline__banks {
+  height: 100%;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: px2Rem(200px);
+  .cell-wrapper__heading {
+    line-height: px2Rem(80px);
+    padding-left: px2Rem(30px);
+    color: $primary_font_color;
+  }
+  .vux-datetime-value {
+    span {
+      font-size: 17px;
+      color: $active_font_color;
+    }
+  }
+  .vux-datetime {
+    p {
+      color: $dis_caption_color;
+      font-size: 17px;
+    }
+  }
+  .offline-btn {
+   
+  }
+  .money-success__qrcode {
+    text-align: center;
+    margin: px2Rem(40px) 0;
+  }
+}
+
+.money-offline__finish {
+  margin-top: 20px;
+  background-color: #fff;
+  height: 100%;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  text-align: center;
+  padding-top: 40%;
+  h3 {
+    color: $primary_font_color;
+    font-size: px2Rem(48px);
+    font-weight: 500;
+  }
+  h4 {
+    margin-top: px2Rem(10px);
+    font-size: px2Rem(28px);
+    font-weight: 500;
+  }
+}

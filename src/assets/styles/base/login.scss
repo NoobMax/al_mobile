@@ -1,0 +1,78 @@
+// widget
+@import './widget/cp-input';
+@import './widget/cp-loading';
+@import './widget/swiper';
+@import './widget/cell';
+@import './widget/tabbar';
+@import './widget/navbar';
+@import './widget/betslip-checker';
+@import './widget/button';
+.cp-login {
+  margin-top: px2Rem(200px);
+  width: 100%;
+  .weui-btn_primary:not(.weui-btn_disabled):active {
+    color: $active_primary_btn_color;
+    background-color: $active_primary_btn_bgcolor;
+  }
+}
+
+.mobile-login {
+  padding: 1.75rem;
+  margin-top: px2Rem(110px);
+  background-color: $login_bg_color;
+  height: inherit;
+  .form-btnGroup {
+    margin-top: px2Rem(100px);
+    padding: 0;
+  }
+  @at-root {
+    .mobile-login__footer {
+      display: flex;
+      justify-content: space-between;
+      padding: 0 px2Rem(20px);
+      margin-top: px2Rem(40px);
+      a {
+        color: $active_font_color;
+        font-size: px2Rem(32px);
+      }
+    }
+  }
+}
+.mobile-form{
+  padding-bottom: 0;
+  .weui-cell {
+    padding: 0;
+    height: px2Rem(100px);
+  }
+  .weui-cells, .weui-cell {
+    &::before {
+      border: none;
+    }
+  }
+  .mobile-form__footer {
+    padding-top: px2Rem(20px);
+    padding-right: px2Rem(20px);
+    a {
+      color: $primary_font_color;
+      font-size: px2Rem(28px);
+    }
+    text-align: right;
+  }
+}
+
+.mobile-form__msg {
+  padding-bottom: px2Rem(20px);
+  p {
+    margin: px2Rem(10px) 0;
+    color: $dis_date_color;
+  }
+  .form-msg__default {
+    font-size: px2Rem(28px);
+    padding: px2Rem(20px);
+    margin-right: px2Rem(10px);
+  }
+  .form-msg__active {
+    background-color: $primary_font_color;
+    color: #fff;
+  }
+}

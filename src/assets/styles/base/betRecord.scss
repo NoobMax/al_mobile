@@ -1,0 +1,339 @@
+// widget
+@import './widget/cp-input';
+@import './widget/cp-loading';
+@import './widget/swiper';
+@import './widget/cell';
+@import './widget/tabbar';
+@import './widget/navbar';
+@import './widget/betslip-checker';
+@import './widget/button';
+
+.bet-record__wrapper {
+  height: 100%;
+  overflow: hidden;
+  background-color: $body_bg_color;
+  @at-root {
+    .bet-record__content {
+      height: 100%;
+      margin-top: px2Rem(90px);
+      @at-root {
+        .bet-record__tab {
+          .bet-record__tab-date {
+            position: absolute;
+            top: px2Rem(13px);
+            right: px2Rem(30px);
+          }
+          height: px2Rem(90px);
+          line-height: px2Rem(90px);
+          padding-left: px2Rem(30px); 
+          background-color: $input_bgColor;
+          position: relative;
+          .bet-record__tab-title .mobile-ft {
+            position: absolute;
+            top: 45%;
+            &::after {
+              left: px2Rem(200px);
+              width: px2Rem(20px);
+              height: px2Rem(20px);
+            }
+            &.is-up {
+              &::after {
+                top: px2Rem(10px);
+              }
+            }
+          }
+          span {
+            font-size: px2Rem(32px);
+            color: $betRecord_se_default_color;
+          }
+        }
+        .bet-record__list {
+          height: 100%;
+          overflow-y: auto;
+          -webkit-overflow-scrolling: touch;
+          padding-bottom: px2Rem(180px);
+          @at-root {
+            .betrecord-item {
+              &:active {
+                background-color: $body_bg_color;
+              }
+              margin-top: px2Rem(20px);
+              background-color: $input_bgColor;
+              height: px2Rem(280px);
+              margin: px2Rem(20px) px2Rem(20px) 0;
+              border-radius: 5px;
+              overflow: hidden;
+              padding: 0 px2Rem(20px);
+              @at-root {
+                .betrecord-item__heading {
+                  display: flex;
+                  justify-content: space-between;
+                  align-items: center;
+                  position: relative;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.betrecord-item__heading {
+  .betrecord-item__heading-left {
+    display: flex;
+    align-items: center;
+    >div {
+      width: px2Rem(80px);
+      height: px2Rem(80px);
+      img {
+        max-width: 100%;
+      }
+    }
+    span {
+      font-size: px2Rem(32px);
+      color: $betRecord_se_date_color;
+    }
+  }
+  .betrecord-item__heading-right {
+    span {
+      font-size: px2Rem(44px);
+      &.is-unsettled {
+        color: $betRecord_un_color;
+      }
+      &.is-win {
+        color: $betRecord_se_win_color;
+      }
+      &.is-low {
+        color: $betRecord_se_low_color;
+      }
+    }
+  }
+}
+.betrecord-item__body {
+  margin-top: px2Rem(10px);
+  padding: 0 px2Rem(10px);
+  .betrecord-body__item {
+    display: flex;
+    line-height: 1.7;
+  }
+  span, h4 {
+    font-size: px2Rem(28px);
+  }
+  span {
+    color: $betRecord_se_title_color;
+  }
+  h4 {
+    color: $betRecord_se_default_color;
+  }
+  .betrecord-item__body-win {
+    h4 {
+      color: $betRecord_se_win_color;
+    }
+  }
+  .betrecord-item__body-amt {
+    h4 {
+      color: $betRecord_se_win_color;
+    }
+  }
+}
+
+.bet-record__popup {
+  position: absolute;
+  background-color: $input_bgColor;
+  left: 0;
+  right: 0;
+  top: px2Rem(90px);
+  z-index: 100;
+  transition: all .4s ease;
+  // &.is-show {
+  //   height: auto;
+  // }
+  .lottery-title__list {
+    margin-top: 0;
+    .lottery-title__item {
+      line-height: px2Rem(90px);
+      color: $betRecord_se_default_color;
+      padding: 0 px2Rem(30px);
+      &.is-active {
+        color: $betRecord_se_win_color;
+      }
+    }
+  }
+}
+
+
+.settled-item {
+  margin-top: px2Rem(20px);
+  padding: px2Rem(20px);
+  background-color: $input_bgColor;
+  padding-left: 0;
+  display: flex;
+  align-items: center;
+  .settled-item__left {
+    > div {
+      width: px2Rem(160px);
+      height: px2Rem(160px);
+      img {
+        max-width: 100%;
+      }
+    }
+  }
+  @at-root {
+    .settled-item__right {
+      flex: 1;
+    }
+    .settled-item__right-heading {
+      display: flex;
+      font-size: px2Rem(32px);
+      color: $betRecord_se_default_color;
+      font-weight: 500;
+      .settled-right__heading-title {
+        flex: 2.5;
+      }
+      .settled-right__heading-round {
+        margin: 0 px2Rem(10px);
+        // margin-right: px2Rem(40px);
+        flex: 3;
+      }
+      .settled-right__heading-time {
+        flex: 0.5;
+        color: $betRecord_se_date_color;
+      }
+    }
+    .settled-item__right-body {
+      div {
+        color: $betRecord_se_title_color;
+      }
+      display: flex;
+      font-size: px2Rem(28px);
+      margin: px2Rem(20px) 0;
+      color: $betRecord_se_title_color;
+      .settled-right__body-left {
+        flex: 1;
+      }
+      .settled-right__body-right {
+        flex: 1;
+      }
+    }
+    .settled-item__right-footer {
+      display: flex;
+      font-size: px2Rem(28px);
+      color: $betRecord_se_title_color;
+      .settled-right__footer-left {
+        flex: 1;
+        span {
+          &.is-low {
+            color: $betRecord_se_low_color;
+          }
+          &.is-win {
+            color: $betRecord_se_win_color;
+          }
+        }
+      }
+      .settled-right__footer-right {
+        flex: 1;
+        color: $betRecord_un_color;
+      }
+    }
+  }
+}
+
+.bet-record__list-title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: px2Rem(20px) px2Rem(30px);
+  padding-bottom: 0;
+  .record-list__date {
+    font-size: px2Rem(32px);
+    color: $betRecord_se_default_color;
+  }
+  .record-list__total {
+    margin-top: px2Rem(20px);
+    display: flex;
+    span {
+      font-size: px2Rem(28px);
+      color: $betRecord_se_date_color;
+    }
+  }
+}
+
+.record-detailt__wrapper {
+  height: 100%;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: px2Rem(100px);
+  .detail-item {
+    margin: px2Rem(20px) px2Rem(20px) 0;
+    background-color: $input_bgColor;
+    border-radius: 5px;
+    padding: 0 px2Rem(20px);
+    padding-bottom: px2Rem(20px);
+    .detail-item__heading {
+      display: flex;
+      justify-content: space-between;
+      height: px2Rem(80px);
+      align-items: center; 
+      span, p {
+        font-size: px2Rem(32px);
+      }
+      span {
+        color: $betRecord_se_date_color;
+      }
+      p {
+        &.is-settled {
+          color: $betRecord_se_win_color; 
+        }
+        &.is-unsettled {
+          color: $betRecord_un_color; 
+        }
+      }
+    }
+    .detail-item__body {
+      > div {
+        display: flex;
+        justify-content: space-between;
+        margin: px2Rem(10px) 0;
+      }
+      .detail-item__body-amt {
+        p {
+          color: $betRecord_se_date_color;
+        }
+      }
+      .detail-item__body-money {
+        p {
+          color: $betRecord_se_win_color;
+        }
+      }
+      .detail-item__body-rebate {
+        p {
+          color: $betRecord_se_win_color;
+        }
+      }
+      span, p {
+        font-size: px2Rem(28px);
+        color: $betRecord_se_lgtitle_color;
+      }
+    }
+    .detail-item__footer {
+      display: flex;
+      height: px2Rem(70px);
+      align-items: center;
+      justify-content: space-between;
+      span {
+        font-size: px2Rem(28px);
+      }
+      p {
+        font-size: px2Rem(32px);
+        &.is-win {
+          color: $betRecord_se_win_color; 
+        }
+        &.is-low {
+          color: $betRecord_se_low_color; 
+        }
+      }
+    }
+  }
+}

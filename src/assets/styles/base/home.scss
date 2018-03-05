@@ -1,0 +1,121 @@
+// widget
+@import './widget/cp-input';
+@import './widget/cp-loading';
+@import './widget/swiper';
+@import './widget/cell';
+@import './widget/tabbar';
+@import './widget/navbar';
+@import './widget/betslip-checker';
+@import './widget/button';
+
+/*home 公告*/
+.mobile-wrapper__notify {
+  padding: px2Rem(20px);
+  display: flex;
+  align-items: center;
+  height: px2Rem(90px);
+  @at-root {
+    .mobile-notify__logo {
+      height: inherit;
+      display: flex;
+      align-items: center;
+      i {
+        display: inline-block;
+        background: url('assets/images/home/notiy.png') no-repeat;
+        background-size: contain;
+        width: px2Rem(72px);
+        height: px2Rem(29px);
+      }
+    }
+    .mobile-notify__content {
+      flex: 1;
+      font-size: px2Rem(28px);
+      color: $notify_font_color;
+      overflow: hidden;
+      text-overflow:ellipsis;
+      white-space: nowrap;
+      margin-left: px2Rem(20px);
+    }
+    .mobile-notify__allow {
+      font-size: px2Rem(36px);
+      margin-left: px2Rem(20px);
+    }
+  }
+}
+
+/*menu*/
+.mobile-home-menu {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 0 px2Rem(20px);
+  @at-root {
+    .mobile-home-menu__item {
+      flex: 0 1 px2Rem(190px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: px2Rem(20px);
+      &:active {
+        background-color: #fff;
+      }
+      @at-root {
+        .mobile-home-menu__body {
+          height: px2Rem(190px);
+          width:  px2Rem(190px);
+          img {
+            max-width: 100%;
+          }
+        }
+        .mobile-home-menu-footer {
+          color: $home_menu_font_color
+        }
+      }
+    }
+  } 
+}
+.mobile-header__user-wrapper {
+  position: fixed;
+  top: px2Rem(90px);
+  left: 0;
+  right: 0;
+  bottom: 0;
+  // transform: scale(0);
+  height: 0;
+  overflow: hidden;
+  transition: all .4s ease;
+  &.is-show {
+    height: 100%;
+  }
+ @at-root {
+   .mobile-header__usermenu {
+     position: absolute;
+     left: 0;
+     right: 0;
+     top: 0;
+     background-color: #fff;
+     z-index: 9999;
+     transition: all .4s ease;
+     &.is-hidden {
+      height: 0;
+     }
+     .mobile-header__usermenu-triangle {
+       right: px2Rem(34px);
+       top: px2Rem(-32px);
+     }
+   }
+   .mobile-header__mask {
+     height: 100%;
+     margin-top: px2Rem(80px);
+     background-color: rgba(0, 0, 0, 0);
+     
+   }
+ } 
+}
+.mobile-cell__wrapper {
+  
+  .weui-cells {
+    margin-top: px2Rem(20px);
+  }
+}

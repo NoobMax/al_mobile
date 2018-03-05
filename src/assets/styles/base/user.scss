@@ -1,0 +1,134 @@
+// widget
+@import './widget/cp-input';
+@import './widget/cp-loading';
+@import './widget/swiper';
+@import './widget/cell';
+@import './widget/tabbar';
+@import './widget/navbar';
+@import './widget/betslip-checker';
+@import './widget/button';
+
+.mobile-user__info {
+  display: flex;
+  padding: px2Rem(30px);
+  align-items: center;
+  background-color: $header_bg_color;
+  &::before {
+    border-top-color: $userinfo_border_color;
+  }
+  @at-root {
+    .mobile-user__info-left {
+      flex: 0 1 px2Rem(140px);
+      height: px2Rem(140px);
+      img {
+        max-width: 100%;
+      }
+    }
+    .mobile-user__info-body {
+      margin-left: px2Rem(20px);
+      flex: 1;
+      @at-root {
+        .user-info__body-username {
+          display: flex;
+          align-items: center;
+          .username {
+            margin-right: px2Rem(20px);
+            font-size: px2Rem(36px);
+            color: $username_font_color;
+          }
+          .userstatus {
+            font-size: px2Rem(28px);
+            color: $userstatus_font_color;
+          }
+        }
+        .user-info__body-phone {
+          margin-top: px2Rem(20px);
+          font-size: px2Rem(28px);
+          color: $primary_font_color;
+        }
+      }
+    }
+    .mobile-user__info-right {
+      width: px2Rem(40px);
+      height: px2Rem(80px);
+      .mobile-ft {
+        &::after {
+          width: 14px;
+          height: 14px;
+          top: px2Rem(40px);
+        }
+      }
+    }
+  }
+}
+.mobile-user__money {
+  display: flex;
+  @at-root {
+    .mobile-user__money-balance{
+      flex: 1;
+      @at-root {
+        .user-money__balance-current {
+          text-align: center;
+          padding: px2Rem(20px);
+          background-color: $usermoney_ba_bg_color;
+          h4 {
+            font-size: px2Rem(24px);
+            font-weight: 400;
+            color: $userinfo_default_ft_color;
+          }
+          p {
+            font-size: px2Rem(40px);
+            color: $username_font_color;
+          }
+        }
+        .user-money__balance-btn {
+          font-size: px2Rem(30px);
+          color: $userinfo_default_ft_color;
+          text-align: center;
+          padding: px2Rem(30px);
+          background-color: $usermoney_ba_deep_bg_color;
+          &:active {
+            background-color: $usermoney_ba_deep_active_bg_color;
+          }
+        }
+      }
+    }
+    .mobile-user__money-withdraw {
+      flex: 1;
+      @at-root {
+        .user-money__withdraw-current{
+          padding: px2Rem(20px);
+          text-align: center;
+          background-color: $usermoney_with_bg_color;
+          h4 {
+            font-size: px2Rem(24px);
+            font-weight: 400;
+            color: $userinfo_default_ft_color;
+          }
+          p {
+            font-size: px2Rem(40px);
+            color: $username_font_color;
+          }
+        }
+        .user-money__withdraw-btn {
+          font-size: px2Rem(30px);
+          color: $userinfo_default_ft_color;
+          text-align: center;
+          padding: px2Rem(30px);
+          background-color: $usermoney_with_deep_bg_color;
+          &:active {
+            background-color: $usermoney_with_deep_active_bg_color;
+          }
+        }
+      }
+    }
+  }
+}
+
+/*个人信息详情*/
+.details-wrapper {
+  height: 100%;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  background-color: $body_bg_color;
+}

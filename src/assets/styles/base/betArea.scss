@@ -1,0 +1,535 @@
+// widget
+@import './widget/cp-input';
+@import './widget/cp-loading';
+@import './widget/swiper';
+@import './widget/cell';
+@import './widget/tabbar';
+@import './widget/navbar';
+@import './widget/betslip-checker';
+@import './widget/button';
+.ball {
+  position: fixed;
+  left: px2Rem(60px);
+  bottom: px2Rem(60px);
+  z-index: 200;
+  transition: all 0.4s cubic-bezier(0.49, -0.29, 0.75, 0.41);
+}
+.inner {
+  width: px2Rem(30px);
+  height: px2Rem(30px);
+  border-radius: 50%;
+  background-color: $money_active_ft_color;
+  transition: all 0.4s linear;
+}
+.betArea-wrapper {
+  /* 飞行小球 */
+  .ball-content {}
+  height: 100%;
+  overflow: hidden;
+  background-color: $body_bg_color;
+  @at-root {
+    .betArea-wrapper__container {
+      height: 100%; 
+      overflow: hidden;
+      margin-top: px2Rem(90px);
+      &.is-blur {
+        filter: blur(5px);
+      }
+    }
+  }
+  @at-root {
+    .betArea-round__info {
+      background-color: $bet_head_bgColor;
+      @at-root {
+        .betArea-round__info-time {
+          height: px2Rem(120px);
+          display: flex;
+          padding-left: px2Rem(30px);
+          align-items: center;
+          padding-right: px2Rem(20px);
+          @at-root {
+            .round-info__img {
+              width: px2Rem(80px);
+              height: px2Rem(80px);
+              img {
+                width: 100%;
+                height: 100%;
+                vertical-align: middle;
+              }
+            } 
+            .round-info__periods {
+              margin-left: px2Rem(10px);
+              h4 {
+                font-size: px2Rem(32px);
+                color: $bet_round_ft_color;
+              } 
+              p {
+                font-size: px2Rem(32px);
+                color: $bet_default_ft_color;
+                span {
+                  font-size: px2Rem(32px);
+                  color: $money_active_ft_color;
+                }
+              }
+            }
+            .round-info__clock {
+              display: flex;
+              flex: 1;
+              justify-content: flex-end;
+            }
+          }
+        }
+        .betArea-round__info-numbers {
+          height: px2Rem(130px);
+          padding: px2Rem(20px) px2Rem(20px) 0 px2Rem(20px);
+          .round-info__heading-group {
+            display: flex;
+            align-items: center;
+          }
+          .round-info__heading {
+            display: flex;
+            align-items: center;
+            flex: 1;
+            @at-root {
+              .round-heading__periods {
+                width: px2Rem(120px);
+                font-size: px2Rem(32px);
+                padding: px2Rem(6px);
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                color: $primary_font_color;
+                &.mobile-ft {
+                  &::after {
+                    width: px2Rem(20px);
+                    height: px2Rem(20px);
+                    top: px2Rem(20px);
+                    right: px2Rem(10px);
+                  }
+                }
+              }
+              .round-heading__number {
+                display: flex;
+                align-items: center;
+                span {
+                  font-size: px2Rem(28px);
+                  color: $active_font_color;
+                }
+              }
+            }
+            .number-equal {
+              display: flex;
+              align-items: center;
+              margin-left: px2Rem(4px);
+            }
+          }
+          .round-info__body {
+            display: flex;
+            margin-top: px2Rem(10px);
+            .round-driver {
+              margin: 0 px2Rem(20px);
+            }
+            .round-info__body-number {
+              display: flex;
+              align-items: center;
+              padding-left: px2Rem(10px);
+              >div {
+                margin-right: px2Rem(10px);
+                &:last-child {
+                  margin-right: 0;
+                }
+              }
+            }
+            .round-info__body-result {
+              display: flex;
+              align-items: center;
+              >div {
+                margin-right: px2Rem(10px);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.betArea-content {
+  height: 100%;
+  overflow: auto;
+  padding-bottom: px2Rem(422px + 110px);
+  -webkit-overflow-scrolling: touch;
+  margin-top: px2Rem(80px);
+}
+.betArea-pk10__content {
+  display: flex;
+  flex-wrap: wrap;
+  overflow-x: hidden;
+  .betArea-masksix-middle__title {
+    margin: px2Rem(15px) 0;
+  }
+}
+.betArea-ball__current {
+  display: flex;
+  flex: 1;
+  .betArea-ball__title {
+    text-align: center;
+    height: px2Rem(65px);
+    line-height: px2Rem(65px);
+    font-size: px2Rem(28px);
+    margin: px2Rem(15px) 0;
+    background-color: $bet_title_bgColor;
+    color: $primary_bg_color;
+  }
+  .betArea-ball__group {
+    display: flex;
+    flex-direction: column;
+    &.is-horizontal {
+      flex-direction: row;
+      justify-content: space-around;
+      flex-wrap: wrap;
+    }
+  }
+  &.is-full-100 {
+    flex: 1 0 100%;
+    flex-direction: column;
+  }
+  &.is-full-20 {
+    width:0%;
+    flex: 1 0 20%;
+    flex-direction: column;
+    align-items: center;
+    .betArea-ball__title {
+      width: px2Rem(135px);
+    }
+  }
+  &.is-full-25 {
+    width:0%;
+    flex: 1 0 25%;
+    flex-direction: column;
+    align-items: center;
+    .betArea-ball__title {
+      width: px2Rem(135px);
+    }
+  }
+}
+/**球的颜色*/
+.odds-btn__content {
+  width: px2Rem(125px);
+  height: px2Rem(90px);
+  margin-left: px2Rem(10px);
+  margin-right: px2Rem(10px);
+  text-align: center;
+  margin-bottom: px2Rem(16px);
+  &.is-middle {
+    width: px2Rem(160px);
+  }
+  &.is-xLarge {
+    width: px2Rem(350px);
+  }
+  &.is-large {
+    width: px2Rem(224px);
+  }
+  &::before {
+    border-radius: px2Rem(20px);
+  }
+  &::after {
+    border-radius: px2Rem(20px);
+  }
+  &:active {
+    .odds-btn__body {
+      background-color: rgba($bet_head_bgColor, .3);
+    }
+  }
+  .odds-btn__body {
+    height: px2Rem(60px);
+    line-height: px2Rem(60px);
+    width: 100%;
+    background-color: $bet_head_bgColor;
+    border-top-right-radius : px2Rem(10px);
+    border-top-left-radius : px2Rem(10px);
+    &.is-active {
+      background-color: $bet_tab_active_bgColor;
+      span {
+        color: $bet_title_bgColor;
+      }
+    }
+    span {
+      font-size: px2Rem(40px);
+      color: $bet_odds_Ft_color;
+    }
+  }
+  .odds-btn__footer {
+    height: px2Rem(30px);
+    line-height: px2Rem(30px);
+    span {
+      font-size: px2Rem(20px);
+      color: $bet_default_ft_color;
+    }
+  }
+}
+
+// 购物车样式
+.betArea-cart {
+  &.is-collapse {
+    .betArea-cart__body {
+      width: 100%;
+    }
+    .betArea-cart__icon {
+      left: px2Rem(30px);
+      // transform: translateX(px2Rem(30px));
+    }
+  }
+}
+.betArea-cart__body{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: px2Rem(100px);
+  background-color: $cart_bar_bg_color;
+  z-index: 1000;
+  transition: width .3s ease;
+  line-height: px2Rem(100px);
+  padding-left: px2Rem(100px + 30px + 20px);
+  .betArea-cart__body-input {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    input {
+      width: px2Rem(380px);
+      font-size: px2Rem(32px);
+    }
+  }
+  .betArea-cart__body-button {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    button {
+      height: px2Rem(100px);
+      width: px2Rem(200px);
+      z-index: 1200;
+      border-radius: 0;
+      font-size: px2Rem(36px);
+    }
+  }
+  span {
+    font-size: px2Rem(28px);
+    color: $cart_ft_color;
+  }
+}
+.betArea-cart__icon {
+  i {
+    position: absolute;
+    display: flex;
+    font-style: inherit;
+    width: px2Rem(40px);
+    height: px2Rem(40px);
+    color: $input_bgColor;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    background-color: $money_active_ft_color;
+    font-size: px2Rem(28px);
+    right: px2Rem(-10px);
+    top: 0;
+    z-index: 1301;
+  }
+  width: px2Rem(100px);
+  height: px2Rem(100px);
+  position: absolute;
+  bottom: px2Rem(15px);
+  // transform: translateX(px2Rem(750px - 150px));
+  background-color: $cart_bg_color;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1300;
+  // transform: all .3s ease;
+  img {
+    width: 60%;
+  }
+  &.is-active {
+    background-color: $cart_active_bg_color;
+  }
+  &.is-drop {
+    animation: betArea-cart__icon-active .4s ease-in-out;
+  }
+}
+@keyframes betArea-cart__icon-active {
+  0%   { transform: scale(1) }
+  // 25%  { transform: scale(.8) }
+  30%  { transform: scale(1.1) }
+  75%  { transform: scale(.9) }
+  100% { transform: scale(1) }
+}
+
+.cart-popup {
+  .vux-popup-dialog.popup {
+    background-color: $body_bg_color;
+    bottom: px2Rem(100px);
+  }
+  +.vux-popup-mask {
+    transform: translateY(px2Rem(-100px));
+  }
+}
+
+/**购物车弹窗的样式*/
+.cart-dialog {
+  overflow-x: hidden;
+}
+.cart-dialog__heading {
+  height: px2Rem(90px);
+  line-height: px2Rem(90px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 px2Rem(40px) 0 px2Rem(25px);
+  span {
+    font-size: px2Rem(28px);
+    color: $primary_font_color;
+  }
+  i {
+    display: inline-block;
+    width: px2Rem(50px);
+    height: px2Rem(50px);
+    background:url('assets/images/lottery/delete_icon.png') no-repeat;
+    background-size: cover;
+  }
+}
+.cart-dialog__body {
+  background-color: $cart_body_bg_color;
+  overflow: hidden;
+  height: px2Rem(500px);
+  ul {
+    height: 100%;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .cart-dialog__body-item {
+    // padding: 0 px2Rem(25px);
+    height: px2Rem(100px);
+  }
+  @at-root {
+    .cart-dialog__body-content {
+      height: px2Rem(100px);
+      padding: 0 px2Rem(25px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: px2Rem(28px);
+      .cart-dialog__body-left {
+        flex: 1;
+      }
+      .cart-dialog__body-title {
+        color: $cart_bg_color;
+      }
+      .cart-dialog__body-bet {
+        color: $active_font_color;
+      }
+      .cart-dialog__body-number {
+        color: $active_font_color;
+      }
+      .cart-dialog__body-caption {
+        color: $cart_bg_color;
+      }
+      input {
+        color: $active_font_color;
+        width: px2Rem(180px);
+      }
+    }
+  }
+    
+}
+.cart-dialog__footer {
+  height: px2Rem(100px);
+  line-height: px2Rem(100px);
+  display: flex;
+  justify-content: space-between;
+  padding: 0 px2Rem(25px);
+  p {
+    font-size: px2Rem(32px);
+    color: $primary_font_color;
+  }
+  .cart-dialog__footer-left {
+    display: flex;
+    span {
+      color: $money_active_ft_color;
+    }
+  }
+  .cart-dialog__footer-right {
+    display: flex;
+    span {
+      color: $money_active_ft_color;
+      font-size: px2Rem(32px);
+    }
+  }
+}
+
+.expand-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  padding-right: px2Rem(70px);
+  background-color: $primary_active_bg_color;
+  position: relative;
+  justify-content: flex-start;
+  height: px2Rem(90px);
+  overflow: hidden;
+  transition: height .3s ease;
+  &.is-expand {
+    height: px2Rem(90px * 3);
+  }
+  .mobile-ft {
+    position: absolute;
+    width: px2Rem(50px);
+    height: px2Rem(70px);
+    // top: px2Rem(6px);
+    right: 0;
+    &::after {
+      width: px2Rem(24px);
+      height: px2Rem(24px);
+      right: px2Rem(20px);
+      border-color: $bet_head_bgColor;
+    }
+  }
+  @at-root {
+    .expand-tabs__item {
+      flex: 1 0 20%;
+      text-align: center;
+      height: px2Rem(90px);
+      line-height: px2Rem(90px);
+      background-color: $primary_bg_color;
+      color: $money_tab_ft_color;
+      font-size: px2Rem(32px);
+      &.is-active {
+        background-color: $primary_active_bg_color;
+        color: $bet_head_bgColor;
+      }
+    }
+  }
+}
+.balance-dialog__body-left {
+  width: px2Rem(180px);
+  height: px2Rem(180px);
+  img {
+    max-width: 100%;
+  }
+}
+.balance-dialog__body-right {
+  margin-left: px2Rem(40px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  p {
+   font-size: px2Rem(32px);
+   span {
+     font-size: px2Rem(36px);
+     color: $active_font_color;
+   } 
+  }
+}
+.balance-hint__text {
+  color: $money_active_ft_color;
+  line-height: 2;
+  font-size: px2Rem(36px);
+}

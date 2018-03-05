@@ -1,0 +1,34 @@
+.bank-item {
+  display: flex;
+  padding: px2Rem(20px);
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  .bank-item__img {
+    position: relative;
+    width: px2Rem(100px);
+    height: px2Rem(100px);
+    img {
+      position: absolute;
+      top:0;
+      left: 0;
+      width: 100%;
+    }
+  }
+  .bank-item__bankInfo {
+    display: flex;
+    flex-direction: column;
+    margin-left: px2Rem(20px);
+    justify-content: center;
+    p,
+    span {
+      color: $active_font_color;
+    }
+    p {
+      font-size: px2Rem(32px);
+    }
+    span {
+      font-size: px2Rem(28px);
+    }
+  }
+}

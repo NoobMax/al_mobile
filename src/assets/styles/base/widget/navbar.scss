@@ -1,0 +1,47 @@
+@import '../fn';
+
+.mint-navbar {
+  background-color: transparent;
+  .mint-tab-item {
+    padding: px2Rem(12px) px2Rem(10px);
+    white-space: nowrap;
+    font-size: px2Rem(30px);
+    &.is-selected {
+      margin-bottom: 0;
+      border-bottom-width: 1px;
+    }
+    .mint-tab-item-label {
+      font-size: inherit;
+    }
+  }
+}
+
+.selected-list {
+  display: flex;
+  height: px2Rem(90px);
+  padding: px2Rem(20px);
+  background-color: $input_bgColor;
+  .selected-item {
+    // flex: 1 0 px2Rem(120px);
+    padding: 0 px2Rem(30px);
+    height: 100%;
+    text-align: center;
+    font-size: px2Rem(28px);
+    color: $active_font_color;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &.is-disabled {
+      &:first-child {
+        padding: 0;
+        justify-content: flex-start;
+      }
+      color: $dis_caption_color;
+    }
+    &.is-active {
+      background-color: $primary_active_bg_color;
+      color: $input_bgColor;
+    }
+  }
+}

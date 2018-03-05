@@ -1,0 +1,45 @@
+@import '../fn';
+.betslip-checker-list {
+  display: flex;
+  flex-wrap: wrap;
+  @at-root {
+    .betslip-checker-item {
+      width: px2Rem(200px);
+      height: px2Rem(100px);
+      border: 1px solid #ccc;
+      background: transparent;
+      border-radius: 8px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      box-sizing: border-box;
+      background-clip: padding-box;
+      &.is-selected {
+        border-color: rgb(252, 55, 140);
+        color: rgb(252, 55, 140);
+      }
+      @at-root {
+        .betslip-checker__body {
+          flex: 1;
+          white-space: nowrap;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+        .betslip-checker__footer {
+          height: px2Rem(40px);
+          width: 100%;
+          align-self: flex-end;
+          background: rgba(222, 222, 222, .4);
+          background-clip: padding-box;
+          text-align: center;
+          &.is-selected {
+            background-color: rgb(252, 55, 140); 
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
+}

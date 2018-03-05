@@ -1,0 +1,122 @@
+@import '../fn';
+
+/*试玩， 登录 按钮样式**/
+.mobile-default-btn {
+  &:first-child {
+    margin-right: px2Rem(10px);
+  }
+  position: relative;
+  width: px2Rem(140px);
+  text-align: center;
+  height: px2Rem(60px);
+  background-color: $default_btn_bgcolor;
+  font-size: px2Rem(32px);
+  text-align: center;
+  text-decoration: none;
+  color: $default_btn_color;
+  border-radius: 5px;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  overflow: hidden;
+  border: none;
+  &:active {
+    background-color: $default_btn_bgcolor_hover;
+  }
+}
+
+/*button-tab**/
+.mobile-btn-tab.vux-button-group > a.vux-button-tab-item-first {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  &::after {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border: none;
+  }
+}
+// 选择的颜色
+.btn-tab__bg-active.vux-button-group > a.vux-button-group-current {
+  background-color: $primary_active_bg_color;
+}
+// 默认背景色
+.btn-tab__bg-default.vux-button-group > a {
+  font-size: px2Rem(32px);
+  background-color: $primary_bg_color;
+  color: $money_tab_ft_color;
+  height: px2Rem(80px);
+  line-height: px2Rem(82px);
+}
+.mobile-btn-tab.vux-button-group > a.vux-button-tab-item-last {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  &::after {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border: none;
+  }
+}
+.mobile-btn-tab.vux-button-group > a.vux-button-tab-item-middle {
+  &::after {
+    border: none;
+  }
+}
+
+%btn-default {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  text-decoration: none;
+  color: #FFFFFF;
+  line-height: 2.33333333;
+  border: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  overflow: hidden;
+}
+/*全屏的按钮默认*/
+.btn-block__default {
+  @extend %btn-default;
+  display: block;
+  width: 100%;
+  border-radius: 5px;
+  &.btn-success {
+    background-color: $success_btn_bg_color;
+    &:active {
+      background-color: rgba($success_btn_bg_color, .8);
+    }
+    &.btn-disabled {
+      background-color: rgba($success_btn_bg_color, .5);
+    }
+  }
+  &.radius-lg {
+    border-radius: 25px;
+  }
+  &.btn-primary {
+    background-color: $primary_btn_bg_color;
+    &:active {
+      background-color: rgba($primary_btn_bg_color, .8);
+    }
+    &.btn-disabled {
+      background-color: rgba($primary_btn_bg_color, .5);
+    }
+  }
+}
+
+.btn-inline__default {
+  @extend %btn-default;
+  width: px2Rem(648px);
+  &.btn-primary {
+    background-color: $primary_btn_bg_color;
+    &:active {
+      background-color: rgba($primary_btn_bg_color, .8);
+    }
+  }
+  &.btn-success {
+    background-color: $success_btn_bg_color;
+    &:active {
+      background-color: rgba($success_btn_bg_color, .8);
+    }
+    &.btn-disabled {
+      background-color: rgba($success_btn_bg_color, .5);
+    }
+  }
+}

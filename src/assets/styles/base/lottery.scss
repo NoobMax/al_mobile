@@ -1,0 +1,158 @@
+// widget
+@import './widget/cp-input';
+@import './widget/cp-loading';
+@import './widget/swiper';
+@import './widget/cell';
+@import './widget/tabbar';
+@import './widget/navbar';
+@import './widget/betslip-checker';
+@import './widget/button';
+.lottery-class-current {
+  .weui-cells {
+    margin-top: px2Rem(20px);
+  }
+}
+.lottery-class-item {
+  &:active {
+    background-color: $body_bg_color;
+  }
+  padding: px2Rem(20px) px2Rem(10px);
+  @at-root {
+    .lottery-class-item__heading {
+      display: flex;
+      h4 {
+        font-size: px2Rem(28px);
+        color: $lottery_default_ft_color;
+      }
+      p {
+        margin-left: px2Rem(20px);
+        font-size: px2Rem(28px);
+        color: $lottery_round_ft_color;
+      }
+    }
+    .lottery-class-item__body {
+      margin: px2Rem(20px) 0;
+      display: flex;
+      align-items: center;
+    }
+    .lottery-class__body-round {
+      display: flex;
+      align-items: center;
+      flex: 1;
+      span {
+        font-size: px2Rem(28px);
+        color: $active_font_color;
+      }
+    }
+    .lottery-class__body-clock {
+      // padding-right: px2Rem(20px);
+    }
+    .lottery-class-item__footer {
+      display: flex;
+      padding-left: px2Rem(10px);
+      align-items: center;
+      .round-driver {
+        margin: 0 px2Rem(10px);
+      }
+      @at-root {
+        .lottery-class__footer-number, 
+        .lottery-class__footer-result
+        {
+          > div {
+            margin: 0 px2Rem(6px);
+          }
+          color: $notify_font_color;
+          font-size: px2Rem(24px);
+          display: flex;
+        }
+      }
+    }
+  }
+}
+
+.lottery-wrapper {
+  height: 100%;
+  overflow: hidden;
+  background-color: $body_bg_color;
+  @at-root {
+    .lottery-wrapper__heading {
+      margin-bottom: px2Rem(20px);
+      margin-top: px2Rem(90px);
+    }
+  }
+}
+.lottery-number__wrapper {
+  height: 100%;
+  overflow: hidden;
+}
+.lottery-number-content {
+  height: 100%;
+  background-color: #fff;
+  overflow-y: auto;
+  padding-bottom: px2Rem(500px); 
+  -webkit-overflow-scrolling: touch;
+}
+
+.number-content__item {
+  display: flex;
+  align-items: center;
+  padding: px2Rem(20px) 0;
+  padding-left: px2Rem(10px);
+  :first-child {
+    margin-top: 0;
+  }
+  .number-content__item-date {
+    font-size: px2Rem(28px);
+    flex: 0 1 px2Rem(80px);
+    color: $lottery_date_color;
+  }
+  .number-content__item-round {
+    font-size: px2Rem(20px);
+    color: $lottery_numer_color;
+  }
+  .number-content__item-numbers {
+    margin-left: px2Rem(10px);
+    display: flex;
+    >div {
+      margin-left: px2Rem(4px);
+    }
+  }
+  .number-content__item-com {
+    display: flex;
+    margin-left: px2Rem(30px);
+    .item-com__number {
+      margin-right: px2Rem(40px);
+    }
+  }
+}
+
+/*模态框*/
+.mobile-close {
+  color: #fff;
+  top: px2Rem(60px);
+}
+.lottery-title__list {
+  margin-top: px2Rem(140px);
+  .lottery-title__item {
+    line-height: px2Rem(100px);
+    font-size: px2Rem(32px);
+    padding: 0 px2Rem(10px);
+    color: $popup_default_ft_color;
+    &:active {
+      background-color: raba($popup_bg_color, .8);
+    }
+    &.is-active {
+      color: $popup_active_ft_color;
+    }
+    &::after {
+      border-bottom-color: $popup_active_ft_color;
+    }
+  }
+}
+.lottery-heading__text{
+  font-size: px2Rem(28px);
+  margin-left: px2Rem(30px);
+  &::after {
+    right: px2Rem(-22px);
+  }
+}

@@ -1,0 +1,45 @@
+@import '../fn';
+// @import '~sprite.scss';
+.mint-tabbar {
+  background-color: $tabbar_bg_color;
+}
+.mint-tabbar > .mint-tab-item.is-selected {
+  background-color: $tabbar_bg_color;
+  color: $tabbar_color;
+}
+.tabbar-icon {
+  display: inline-block;
+  width: px2Rem(64px);
+  height: px2Rem(64px);
+}
+.cp-mobile__tabbar {
+  &.weui-tabbar {
+    position: fixed;
+  }
+  .weui-tabbar__label {
+    color: $primary_font_color;
+  }
+  .weui-tabbar__item.weui-bar__item_on .weui-tabbar__icon, .weui-tabbar__item.weui-bar__item_on .weui-tabbar__icon > i, .weui-tabbar__item.weui-bar__item_on .weui-tabbar__label {
+    color: $active_font_color;
+  }
+}
+
+/* .cp-tabbar-home__icon {
+  @extend .tabbar-icon;
+  @include sprite($home)
+}
+.cp-tabbar-lotteryChart__icon {
+  @extend .tabbar-icon;
+  @include sprite($lottery_chart)
+}
+.cp-tabbar-user__icon {
+  @extend .tabbar-icon;
+  @include sprite($user)
+} */
+.vux-tab {
+  &.mobile-find__tab {
+    .vux-tab-item  {
+      font-size: px2Rem(30px);
+    }
+  }
+}

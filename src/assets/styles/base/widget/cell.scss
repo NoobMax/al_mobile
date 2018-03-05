@@ -1,0 +1,55 @@
+@import '../fn';
+
+.mint-cell-allow-right::after {
+  width: px2Rem($cell_icon_font);
+  height: px2Rem($cell_icon_font);
+}
+.mint-cell {
+  min-height: px2Rem(90px);
+  @at-root {
+    .mint-cell-text {
+      vertical-align: initial;
+    }
+  }
+}
+.mint-cell::after {
+  content: '';
+  position: absolute;
+  width: 200%;
+  height: 1px;
+  bottom: 0;
+  left: -50%;
+  background: #e7e7e7;
+  transform: scale(0.5);
+}
+
+.mobile-cell__wrapper {
+  .balance-active {
+    .weui-cell__ft {
+      color: $money_active_ft_color;
+    }
+  }
+  .cell-wrapper__heading {
+    font-size: px2Rem(28px);
+    color: $primary_font_color;
+    padding: px2Rem(20px);
+  }
+  .weui-cell {
+    padding: 0 15px;
+    height: px2Rem(90px);
+    line-height: px2Rem(90px);
+    .weui-cell__hd {
+      height: 100%;
+      img {
+        vertical-align: middle;
+      }
+    }
+  }
+  .vux-label {
+    font-size: px2Rem(32px);
+    color: $cell_font_color;
+  }
+  .weui-cell__ft {
+    color: $primary_font_color;
+  }
+}
